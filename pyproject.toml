@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "local-doc-summarizer"
+version = "0.1.0"
+description = "Local CLI app for summarizing long documents into DOCX reports"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+  "transformers>=4.42.0,<5.0.0",
+  "torch>=2.3.0",
+  "python-docx>=1.1.2",
+  "pypdf>=4.2.0",
+  "langdetect>=1.0.9",
+  "sentencepiece>=0.2.0",
+  "protobuf>=4.25.0"
+]
+
+[project.scripts]
+summarize-doc = "summarizer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
